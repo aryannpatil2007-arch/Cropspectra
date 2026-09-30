@@ -1,0 +1,1214 @@
+[
+  {
+    "id": "wheat",
+    "name": "Wheat",
+    "hindi_name": "गेहूं (Gehun)",
+    "category": "Cereal",
+    "seasons": [
+      "Rabi"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Loamy",
+      "Clay",
+      "Black (Regur)"
+    ],
+    "temp_min": 10.0,
+    "temp_max": 25.0,
+    "temp_ideal_min": 15.0,
+    "temp_ideal_max": 22.0,
+    "humidity_min": 40.0,
+    "humidity_max": 75.0,
+    "rainfall_min": 50.0,
+    "rainfall_max": 150.0,
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.0,
+    "npk_ideal": {
+      "N": 120,
+      "P": 60,
+      "K": 40
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "110-130",
+    "states": [
+      "Punjab",
+      "Haryana",
+      "Uttar Pradesh",
+      "Madhya Pradesh",
+      "Rajasthan",
+      "Bihar",
+      "Gujarat",
+      "Uttarakhand",
+      "Himachal Pradesh",
+      "Jammu & Kashmir"
+    ],
+    "description": "Wheat is the premier staple food crop of North and Central India, cultivated during cool winter months.",
+    "tips": "Sow between 1st and 15th November. Crown root initiation (CRI) stage at 20-25 days is critical for first irrigation.",
+    "agronomic_source": "ICAR-Indian Institute of Wheat & Barley Research (IIWBR)"
+  },
+  {
+    "id": "rice",
+    "name": "Rice / Paddy",
+    "hindi_name": "धान / चावल (Dhan / Chawal)",
+    "category": "Cereal",
+    "seasons": [
+      "Kharif",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Clay",
+      "Alluvial",
+      "Loamy",
+      "Black (Regur)"
+    ],
+    "temp_min": 20.0,
+    "temp_max": 38.0,
+    "temp_ideal_min": 25.0,
+    "temp_ideal_max": 32.0,
+    "humidity_min": 65.0,
+    "humidity_max": 95.0,
+    "rainfall_min": 900.0,
+    "rainfall_max": 2500.0,
+    "ph_min": 5.0,
+    "ph_max": 7.5,
+    "ph_ideal_min": 5.5,
+    "ph_ideal_max": 6.5,
+    "npk_ideal": {
+      "N": 100,
+      "P": 50,
+      "K": 50
+    },
+    "water_requirement": "Very High",
+    "irrigation_required": true,
+    "duration_days": "120-150",
+    "states": [
+      "West Bengal",
+      "Uttar Pradesh",
+      "Punjab",
+      "Odisha",
+      "Andhra Pradesh",
+      "Tamil Nadu",
+      "Bihar",
+      "Chhattisgarh",
+      "Assam",
+      "Kerala",
+      "Telangana",
+      "Haryana"
+    ],
+    "description": "Rice is India's principal Kharif food grain, thriving in hot, humid climates with abundant standing water.",
+    "tips": "Maintain 2-5 cm shallow standing water during tillering and panicle initiation stages. Incorporate bio-fertilizers like Azospirillum.",
+    "agronomic_source": "ICAR-National Rice Research Institute (NRRI)"
+  },
+  {
+    "id": "maize",
+    "name": "Maize / Corn",
+    "hindi_name": "मक्का (Makka)",
+    "category": "Cereal / Fodder",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Loamy",
+      "Red",
+      "Black (Regur)"
+    ],
+    "temp_min": 18.0,
+    "temp_max": 35.0,
+    "temp_ideal_min": 21.0,
+    "temp_ideal_max": 30.0,
+    "humidity_min": 50.0,
+    "humidity_max": 80.0,
+    "rainfall_min": 500.0,
+    "rainfall_max": 900.0,
+    "ph_min": 5.8,
+    "ph_max": 7.8,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.5,
+    "npk_ideal": {
+      "N": 120,
+      "P": 60,
+      "K": 40
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "90-110",
+    "states": [
+      "Karnataka",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Bihar",
+      "Rajasthan",
+      "Uttar Pradesh",
+      "Andhra Pradesh",
+      "Telangana",
+      "Tamil Nadu"
+    ],
+    "description": "Maize is a versatile crop known as Queen of Cereals, grown for grain, sweet corn, popcorn, and animal feed.",
+    "tips": "Ensure proper drainage; maize is sensitive to waterlogging. Knee-high and tasseling stages require timely irrigation.",
+    "agronomic_source": "ICAR-Indian Institute of Maize Research (IIMR)"
+  },
+  {
+    "id": "cotton",
+    "name": "Cotton",
+    "hindi_name": "कपास (Kapas)",
+    "category": "Commercial / Fibre",
+    "seasons": [
+      "Kharif"
+    ],
+    "soil_types": [
+      "Black (Regur)",
+      "Alluvial",
+      "Red"
+    ],
+    "temp_min": 21.0,
+    "temp_max": 36.0,
+    "temp_ideal_min": 25.0,
+    "temp_ideal_max": 32.0,
+    "humidity_min": 50.0,
+    "humidity_max": 80.0,
+    "rainfall_min": 500.0,
+    "rainfall_max": 1000.0,
+    "ph_min": 6.0,
+    "ph_max": 8.5,
+    "ph_ideal_min": 6.8,
+    "ph_ideal_max": 7.8,
+    "npk_ideal": {
+      "N": 100,
+      "P": 50,
+      "K": 50
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "150-180",
+    "states": [
+      "Gujarat",
+      "Maharashtra",
+      "Telangana",
+      "Andhra Pradesh",
+      "Rajasthan",
+      "Haryana",
+      "Punjab",
+      "Madhya Pradesh",
+      "Karnataka"
+    ],
+    "description": "Cotton (White Gold) is a major commercial cash crop that thrives in deep, moisture-retentive black soils.",
+    "tips": "Requires clear sunny days during boll bursting and picking. Avoid nitrogen over-application to prevent excessive vegetative growth.",
+    "agronomic_source": "ICAR-Central Institute for Cotton Research (CICR)"
+  },
+  {
+    "id": "sugarcane",
+    "name": "Sugarcane",
+    "hindi_name": "गन्ना (Ganna)",
+    "category": "Commercial / Sugar",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Black (Regur)",
+      "Loamy",
+      "Clay"
+    ],
+    "temp_min": 20.0,
+    "temp_max": 38.0,
+    "temp_ideal_min": 27.0,
+    "temp_ideal_max": 35.0,
+    "humidity_min": 60.0,
+    "humidity_max": 85.0,
+    "rainfall_min": 1000.0,
+    "rainfall_max": 2000.0,
+    "ph_min": 6.0,
+    "ph_max": 8.0,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.5,
+    "npk_ideal": {
+      "N": 150,
+      "P": 60,
+      "K": 60
+    },
+    "water_requirement": "Very High",
+    "irrigation_required": true,
+    "duration_days": "300-365",
+    "states": [
+      "Uttar Pradesh",
+      "Maharashtra",
+      "Karnataka",
+      "Tamil Nadu",
+      "Bihar",
+      "Gujarat",
+      "Andhra Pradesh",
+      "Haryana",
+      "Punjab"
+    ],
+    "description": "Long-duration perennial cash crop essential for sugar and bioethanol production in India.",
+    "tips": "Plant sets with 3-buds treated with fungicide. Trash mulching helps conserve soil moisture and suppress weeds.",
+    "agronomic_source": "ICAR-Indian Institute of Sugarcane Research (IISR)"
+  },
+  {
+    "id": "mustard",
+    "name": "Mustard / Rapeseed",
+    "hindi_name": "सरसों / राई (Sarson / Rai)",
+    "category": "Oilseed",
+    "seasons": [
+      "Rabi"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Loamy",
+      "Sandy",
+      "Clay"
+    ],
+    "temp_min": 10.0,
+    "temp_max": 25.0,
+    "temp_ideal_min": 15.0,
+    "temp_ideal_max": 22.0,
+    "humidity_min": 40.0,
+    "humidity_max": 70.0,
+    "rainfall_min": 50.0,
+    "rainfall_max": 120.0,
+    "ph_min": 6.0,
+    "ph_max": 7.8,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.2,
+    "npk_ideal": {
+      "N": 80,
+      "P": 40,
+      "K": 20
+    },
+    "water_requirement": "Low",
+    "irrigation_required": false,
+    "duration_days": "100-120",
+    "states": [
+      "Rajasthan",
+      "Madhya Pradesh",
+      "Haryana",
+      "Uttar Pradesh",
+      "West Bengal",
+      "Gujarat",
+      "Bihar",
+      "Assam"
+    ],
+    "description": "Crucial Rabi oilseed crop requiring cool climate and modest moisture, prominent in semi-arid zones.",
+    "tips": "Apply elemental sulfur (20-30 kg/ha) or gypsum to increase oil content and grain yield.",
+    "agronomic_source": "ICAR-Directorate of Rapeseed-Mustard Research (DRMR)"
+  },
+  {
+    "id": "chickpea",
+    "name": "Chickpea / Bengal Gram",
+    "hindi_name": "चना (Chana)",
+    "category": "Pulse",
+    "seasons": [
+      "Rabi"
+    ],
+    "soil_types": [
+      "Black (Regur)",
+      "Alluvial",
+      "Loamy",
+      "Sandy"
+    ],
+    "temp_min": 10.0,
+    "temp_max": 28.0,
+    "temp_ideal_min": 15.0,
+    "temp_ideal_max": 24.0,
+    "humidity_min": 35.0,
+    "humidity_max": 65.0,
+    "rainfall_min": 40.0,
+    "rainfall_max": 100.0,
+    "ph_min": 6.0,
+    "ph_max": 8.0,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.5,
+    "npk_ideal": {
+      "N": 20,
+      "P": 50,
+      "K": 20
+    },
+    "water_requirement": "Low",
+    "irrigation_required": false,
+    "duration_days": "90-110",
+    "states": [
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Rajasthan",
+      "Karnataka",
+      "Uttar Pradesh",
+      "Andhra Pradesh",
+      "Gujarat"
+    ],
+    "description": "India's premier pulse crop providing protein and fixing biological atmospheric nitrogen into soil.",
+    "tips": "Seed treatment with Rhizobium and PSB culture enhances nitrogen fixation. Avoid excess irrigation which causes wilt disease.",
+    "agronomic_source": "ICAR-Indian Institute of Pulses Research (IIPR)"
+  },
+  {
+    "id": "soybean",
+    "name": "Soybean",
+    "hindi_name": "सोयाबीन (Soyabean)",
+    "category": "Oilseed / Pulse",
+    "seasons": [
+      "Kharif"
+    ],
+    "soil_types": [
+      "Black (Regur)",
+      "Loamy",
+      "Alluvial",
+      "Clay"
+    ],
+    "temp_min": 20.0,
+    "temp_max": 35.0,
+    "temp_ideal_min": 24.0,
+    "temp_ideal_max": 30.0,
+    "humidity_min": 60.0,
+    "humidity_max": 85.0,
+    "rainfall_min": 600.0,
+    "rainfall_max": 1000.0,
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.0,
+    "npk_ideal": {
+      "N": 30,
+      "P": 60,
+      "K": 40
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "90-105",
+    "states": [
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Rajasthan",
+      "Karnataka",
+      "Telangana",
+      "Gujarat"
+    ],
+    "description": "Dual-purpose wonder crop providing both high quality vegetable protein (40%) and edible oil (20%).",
+    "tips": "Pod-filling stage is highly sensitive to moisture stress; provide supplemental irrigation if dry spell occurs.",
+    "agronomic_source": "ICAR-Indian Institute of Soybean Research (IISR)"
+  },
+  {
+    "id": "groundnut",
+    "name": "Groundnut / Peanut",
+    "hindi_name": "मूंगफली (Mungfali)",
+    "category": "Oilseed",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Sandy",
+      "Red",
+      "Loamy",
+      "Alluvial"
+    ],
+    "temp_min": 22.0,
+    "temp_max": 35.0,
+    "temp_ideal_min": 25.0,
+    "temp_ideal_max": 30.0,
+    "humidity_min": 50.0,
+    "humidity_max": 75.0,
+    "rainfall_min": 500.0,
+    "rainfall_max": 800.0,
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.0,
+    "npk_ideal": {
+      "N": 20,
+      "P": 40,
+      "K": 40
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "105-125",
+    "states": [
+      "Gujarat",
+      "Rajasthan",
+      "Tamil Nadu",
+      "Andhra Pradesh",
+      "Karnataka",
+      "Maharashtra",
+      "Madhya Pradesh"
+    ],
+    "description": "Major oilseed crop flourishing in well-drained sandy loam and red soils with high calcium requirement.",
+    "tips": "Apply gypsum (200-400 kg/ha) at pegging stage to facilitate easy pod penetration and shell filling.",
+    "agronomic_source": "ICAR-Directorate of Groundnut Research (DGR)"
+  },
+  {
+    "id": "bajra",
+    "name": "Pearl Millet / Bajra",
+    "hindi_name": "बाजरा (Bajra)",
+    "category": "Millet",
+    "seasons": [
+      "Kharif",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Sandy",
+      "Loamy",
+      "Red",
+      "Alluvial"
+    ],
+    "temp_min": 24.0,
+    "temp_max": 40.0,
+    "temp_ideal_min": 28.0,
+    "temp_ideal_max": 35.0,
+    "humidity_min": 30.0,
+    "humidity_max": 65.0,
+    "rainfall_min": 300.0,
+    "rainfall_max": 600.0,
+    "ph_min": 6.5,
+    "ph_max": 8.5,
+    "ph_ideal_min": 7.0,
+    "ph_ideal_max": 8.0,
+    "npk_ideal": {
+      "N": 80,
+      "P": 40,
+      "K": 20
+    },
+    "water_requirement": "Low",
+    "irrigation_required": false,
+    "duration_days": "75-90",
+    "states": [
+      "Rajasthan",
+      "Uttar Pradesh",
+      "Gujarat",
+      "Haryana",
+      "Maharashtra",
+      "Madhya Pradesh",
+      "Karnataka"
+    ],
+    "description": "Drought-hardy nutrient-rich nutri-cereal resilient to extreme heat, poor sandy soils and erratic rainfall.",
+    "tips": "Superb option for dryland regions. Top dress nitrogen at tillering after rain.",
+    "agronomic_source": "ICAR-Indian Institute of Millets Research (IIMR)"
+  },
+  {
+    "id": "jowar",
+    "name": "Sorghum / Jowar",
+    "hindi_name": "ज्वार (Jowar)",
+    "category": "Millet",
+    "seasons": [
+      "Kharif",
+      "Rabi"
+    ],
+    "soil_types": [
+      "Black (Regur)",
+      "Alluvial",
+      "Clay",
+      "Loamy"
+    ],
+    "temp_min": 20.0,
+    "temp_max": 38.0,
+    "temp_ideal_min": 25.0,
+    "temp_ideal_max": 32.0,
+    "humidity_min": 35.0,
+    "humidity_max": 70.0,
+    "rainfall_min": 400.0,
+    "rainfall_max": 750.0,
+    "ph_min": 6.0,
+    "ph_max": 8.5,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.5,
+    "npk_ideal": {
+      "N": 80,
+      "P": 40,
+      "K": 40
+    },
+    "water_requirement": "Low",
+    "irrigation_required": false,
+    "duration_days": "100-115",
+    "states": [
+      "Maharashtra",
+      "Karnataka",
+      "Rajasthan",
+      "Tamil Nadu",
+      "Andhra Pradesh",
+      "Telangana",
+      "Madhya Pradesh"
+    ],
+    "description": "Climate-resilient staple millet rich in dietary fiber, widely cultivated across the Deccan plateau.",
+    "tips": "In dry areas, broad bed and furrow (BBF) method improves in-situ soil moisture conservation.",
+    "agronomic_source": "ICAR-IIMR Hyderabad"
+  },
+  {
+    "id": "ragi",
+    "name": "Finger Millet / Ragi",
+    "hindi_name": "रागी / मडुआ (Ragi / Madua)",
+    "category": "Millet",
+    "seasons": [
+      "Kharif",
+      "Rabi"
+    ],
+    "soil_types": [
+      "Red",
+      "Laterite",
+      "Loamy",
+      "Sandy"
+    ],
+    "temp_min": 18.0,
+    "temp_max": 35.0,
+    "temp_ideal_min": 22.0,
+    "temp_ideal_max": 28.0,
+    "humidity_min": 50.0,
+    "humidity_max": 80.0,
+    "rainfall_min": 500.0,
+    "rainfall_max": 900.0,
+    "ph_min": 5.0,
+    "ph_max": 7.5,
+    "ph_ideal_min": 5.5,
+    "ph_ideal_max": 6.8,
+    "npk_ideal": {
+      "N": 50,
+      "P": 40,
+      "K": 25
+    },
+    "water_requirement": "Low",
+    "irrigation_required": false,
+    "duration_days": "95-120",
+    "states": [
+      "Karnataka",
+      "Tamil Nadu",
+      "Uttarakhand",
+      "Maharashtra",
+      "Andhra Pradesh",
+      "Odisha",
+      "Jharkhand"
+    ],
+    "description": "Nutrient-dense super-grain packed with calcium and iron, thriving in poor red and hilly soils.",
+    "tips": "Direct line sowing or transplanting 20-day old seedlings gives robust tillering and high yield.",
+    "agronomic_source": "ICAR-All India Coordinated Research Project on Small Millets"
+  },
+  {
+    "id": "pigeonpea",
+    "name": "Pigeon Pea / Arhar / Tur",
+    "hindi_name": "अरहर / तूर (Arhar / Tur)",
+    "category": "Pulse",
+    "seasons": [
+      "Kharif"
+    ],
+    "soil_types": [
+      "Black (Regur)",
+      "Alluvial",
+      "Red",
+      "Loamy"
+    ],
+    "temp_min": 20.0,
+    "temp_max": 38.0,
+    "temp_ideal_min": 24.0,
+    "temp_ideal_max": 32.0,
+    "humidity_min": 50.0,
+    "humidity_max": 80.0,
+    "rainfall_min": 600.0,
+    "rainfall_max": 1000.0,
+    "ph_min": 6.0,
+    "ph_max": 8.0,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.5,
+    "npk_ideal": {
+      "N": 20,
+      "P": 50,
+      "K": 20
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": false,
+    "duration_days": "140-180",
+    "states": [
+      "Maharashtra",
+      "Madhya Pradesh",
+      "Karnataka",
+      "Uttar Pradesh",
+      "Gujarat",
+      "Telangana",
+      "Jharkhand"
+    ],
+    "description": "Deep-rooted primary Kharif pulse, providing dal protein and improving soil fertility through leaf shedding.",
+    "tips": "Intercropping with soybean or cotton increases land equivalent ratio and reduces pest pressure.",
+    "agronomic_source": "ICAR-IIPR Kanpur"
+  },
+  {
+    "id": "moong",
+    "name": "Green Gram / Moong",
+    "hindi_name": "मूंग (Moong)",
+    "category": "Pulse",
+    "seasons": [
+      "Kharif",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Loamy",
+      "Sandy",
+      "Red"
+    ],
+    "temp_min": 22.0,
+    "temp_max": 38.0,
+    "temp_ideal_min": 26.0,
+    "temp_ideal_max": 34.0,
+    "humidity_min": 40.0,
+    "humidity_max": 75.0,
+    "rainfall_min": 300.0,
+    "rainfall_max": 600.0,
+    "ph_min": 6.2,
+    "ph_max": 7.8,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.2,
+    "npk_ideal": {
+      "N": 20,
+      "P": 40,
+      "K": 20
+    },
+    "water_requirement": "Low",
+    "irrigation_required": true,
+    "duration_days": "60-70",
+    "states": [
+      "Rajasthan",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Bihar",
+      "Gujarat",
+      "Andhra Pradesh",
+      "Tamil Nadu",
+      "Punjab"
+    ],
+    "description": "Short-duration pulse ideal as a summer / Zaid catch crop between Rabi harvesting and Kharif sowing.",
+    "tips": "Quick 60-day turnaround makes it an excellent green manure crop when residues are ploughed back.",
+    "agronomic_source": "ICAR-IIPR Kanpur"
+  },
+  {
+    "id": "urad",
+    "name": "Black Gram / Urad",
+    "hindi_name": "उड़द (Urad)",
+    "category": "Pulse",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Black (Regur)",
+      "Alluvial",
+      "Loamy"
+    ],
+    "temp_min": 22.0,
+    "temp_max": 36.0,
+    "temp_ideal_min": 25.0,
+    "temp_ideal_max": 32.0,
+    "humidity_min": 50.0,
+    "humidity_max": 80.0,
+    "rainfall_min": 450.0,
+    "rainfall_max": 750.0,
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.2,
+    "npk_ideal": {
+      "N": 20,
+      "P": 40,
+      "K": 20
+    },
+    "water_requirement": "Low",
+    "irrigation_required": false,
+    "duration_days": "70-85",
+    "states": [
+      "Madhya Pradesh",
+      "Uttar Pradesh",
+      "Andhra Pradesh",
+      "Maharashtra",
+      "Tamil Nadu",
+      "Rajasthan",
+      "West Bengal"
+    ],
+    "description": "High-protein pulse crop cultivated for dal, papad, and idli batter, fixing nitrogen effectively.",
+    "tips": "Spray 2% DAP at flower initiation and 15 days later to boost pod set and grain weight.",
+    "agronomic_source": "ICAR-IIPR Kanpur"
+  },
+  {
+    "id": "potato",
+    "name": "Potato",
+    "hindi_name": "आलू (Aloo)",
+    "category": "Horticultural / Tuber",
+    "seasons": [
+      "Rabi"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Loamy",
+      "Sandy"
+    ],
+    "temp_min": 12.0,
+    "temp_max": 24.0,
+    "temp_ideal_min": 16.0,
+    "temp_ideal_max": 20.0,
+    "humidity_min": 50.0,
+    "humidity_max": 80.0,
+    "rainfall_min": 50.0,
+    "rainfall_max": 150.0,
+    "ph_min": 5.2,
+    "ph_max": 6.8,
+    "ph_ideal_min": 5.5,
+    "ph_ideal_max": 6.2,
+    "npk_ideal": {
+      "N": 150,
+      "P": 80,
+      "K": 100
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "80-105",
+    "states": [
+      "Uttar Pradesh",
+      "West Bengal",
+      "Bihar",
+      "Gujarat",
+      "Madhya Pradesh",
+      "Punjab",
+      "Assam",
+      "Haryana"
+    ],
+    "description": "Highest yielding vegetable tuber crop requiring cool night temperatures for tuber formation.",
+    "tips": "Tuberization stops if night temperature exceeds 21°C. Earthing up at 30-35 DAS protects developing tubers from sunlight.",
+    "agronomic_source": "ICAR-Central Potato Research Institute (CPRI)"
+  },
+  {
+    "id": "tomato",
+    "name": "Tomato",
+    "hindi_name": "टमाटर (Tamatar)",
+    "category": "Horticultural / Vegetable",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Loamy",
+      "Red",
+      "Black (Regur)"
+    ],
+    "temp_min": 15.0,
+    "temp_max": 32.0,
+    "temp_ideal_min": 20.0,
+    "temp_ideal_max": 26.0,
+    "humidity_min": 50.0,
+    "humidity_max": 80.0,
+    "rainfall_min": 400.0,
+    "rainfall_max": 800.0,
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.2,
+    "ph_ideal_max": 6.8,
+    "npk_ideal": {
+      "N": 100,
+      "P": 60,
+      "K": 60
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "100-130",
+    "states": [
+      "Andhra Pradesh",
+      "Madhya Pradesh",
+      "Karnataka",
+      "Gujarat",
+      "Odisha",
+      "West Bengal",
+      "Maharashtra",
+      "Bihar",
+      "Tamil Nadu"
+    ],
+    "description": "High-value commercial vegetable crop rich in Lycopene, cultivated across multi-season cycles.",
+    "tips": "Staking indeterminate varieties prevents soil contact and fungal diseases. Ensure adequate calcium to prevent Blossom End Rot.",
+    "agronomic_source": "ICAR-Indian Institute of Horticultural Research (IIHR)"
+  },
+  {
+    "id": "onion",
+    "name": "Onion",
+    "hindi_name": "प्याज (Pyaaz)",
+    "category": "Horticultural / Bulb",
+    "seasons": [
+      "Rabi",
+      "Kharif",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Loamy",
+      "Alluvial",
+      "Red",
+      "Black (Regur)"
+    ],
+    "temp_min": 13.0,
+    "temp_max": 30.0,
+    "temp_ideal_min": 18.0,
+    "temp_ideal_max": 25.0,
+    "humidity_min": 45.0,
+    "humidity_max": 70.0,
+    "rainfall_min": 350.0,
+    "rainfall_max": 700.0,
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.0,
+    "npk_ideal": {
+      "N": 100,
+      "P": 50,
+      "K": 50
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "110-140",
+    "states": [
+      "Maharashtra",
+      "Madhya Pradesh",
+      "Karnataka",
+      "Gujarat",
+      "Rajasthan",
+      "Bihar",
+      "Andhra Pradesh",
+      "Haryana"
+    ],
+    "description": "Essential culinary bulb vegetable with Maharashtra (Nashik) being the primary production hub.",
+    "tips": "Stop irrigation 10-15 days before harvest to allow neck drying and enhance bulb shelf life during storage.",
+    "agronomic_source": "ICAR-Directorate of Onion and Garlic Research (DOGR)"
+  },
+  {
+    "id": "banana",
+    "name": "Banana",
+    "hindi_name": "केला (Kela)",
+    "category": "Horticultural / Fruit",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Clay",
+      "Loamy",
+      "Black (Regur)"
+    ],
+    "temp_min": 15.0,
+    "temp_max": 38.0,
+    "temp_ideal_min": 25.0,
+    "temp_ideal_max": 32.0,
+    "humidity_min": 60.0,
+    "humidity_max": 90.0,
+    "rainfall_min": 1200.0,
+    "rainfall_max": 2200.0,
+    "ph_min": 5.8,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.0,
+    "npk_ideal": {
+      "N": 200,
+      "P": 60,
+      "K": 250
+    },
+    "water_requirement": "Very High",
+    "irrigation_required": true,
+    "duration_days": "300-360",
+    "states": [
+      "Andhra Pradesh",
+      "Maharashtra",
+      "Gujarat",
+      "Tamil Nadu",
+      "Karnataka",
+      "Uttar Pradesh",
+      "Bihar",
+      "Kerala",
+      "West Bengal"
+    ],
+    "description": "Fast-growing high potassium demanding perennial fruit crop yielding high commercial returns.",
+    "tips": "Tissue-cultured plantlets (Grand Naine) combined with drip fertigation maximize bunch weight and uniform maturity.",
+    "agronomic_source": "ICAR-National Research Centre for Banana (NRCB)"
+  },
+  {
+    "id": "jute",
+    "name": "Jute (Golden Fibre)",
+    "hindi_name": "जूट / पटसन (Jute / Patsan)",
+    "category": "Commercial / Fibre",
+    "seasons": [
+      "Kharif",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Clay",
+      "Loamy"
+    ],
+    "temp_min": 24.0,
+    "temp_max": 38.0,
+    "temp_ideal_min": 27.0,
+    "temp_ideal_max": 35.0,
+    "humidity_min": 70.0,
+    "humidity_max": 95.0,
+    "rainfall_min": 1200.0,
+    "rainfall_max": 1800.0,
+    "ph_min": 5.5,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.0,
+    "ph_ideal_max": 6.8,
+    "npk_ideal": {
+      "N": 60,
+      "P": 30,
+      "K": 30
+    },
+    "water_requirement": "High",
+    "irrigation_required": true,
+    "duration_days": "110-130",
+    "states": [
+      "West Bengal",
+      "Bihar",
+      "Assam",
+      "Odisha",
+      "Meghalaya",
+      "Tripura"
+    ],
+    "description": "Golden fibre crop of the fertile Ganges-Brahmaputra delta, requiring warm humid monsoon conditions.",
+    "tips": "Requires abundant clean running water for retting and fibre extraction after harvesting at small pod stage.",
+    "agronomic_source": "ICAR-Central Research Institute for Jute and Allied Fibres (CRIJAF)"
+  },
+  {
+    "id": "tea",
+    "name": "Tea",
+    "hindi_name": "चाय (Chai)",
+    "category": "Plantation",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Laterite",
+      "Red",
+      "Loamy"
+    ],
+    "temp_min": 15.0,
+    "temp_max": 32.0,
+    "temp_ideal_min": 20.0,
+    "temp_ideal_max": 28.0,
+    "humidity_min": 70.0,
+    "humidity_max": 95.0,
+    "rainfall_min": 1500.0,
+    "rainfall_max": 3000.0,
+    "ph_min": 4.5,
+    "ph_max": 5.8,
+    "ph_ideal_min": 4.8,
+    "ph_ideal_max": 5.5,
+    "npk_ideal": {
+      "N": 120,
+      "P": 40,
+      "K": 80
+    },
+    "water_requirement": "High",
+    "irrigation_required": false,
+    "duration_days": "Perennial",
+    "states": [
+      "Assam",
+      "West Bengal",
+      "Tamil Nadu",
+      "Kerala",
+      "Himachal Pradesh",
+      "Tripura",
+      "Uttarakhand"
+    ],
+    "description": "Evergreen plantation crop thriving on well-drained acidic hill slopes with heavy rainfall.",
+    "tips": "Strictly requires acidic pH (<5.8). Waterlogging is fatal; plant on contoured sloping terrains under light shade trees.",
+    "agronomic_source": "Tea Board of India / UPASI Tea Research Institute"
+  },
+  {
+    "id": "coffee",
+    "name": "Coffee",
+    "hindi_name": "कॉफ़ी / कहवा (Coffee / Kahwa)",
+    "category": "Plantation",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Laterite",
+      "Red",
+      "Loamy"
+    ],
+    "temp_min": 15.0,
+    "temp_max": 30.0,
+    "temp_ideal_min": 18.0,
+    "temp_ideal_max": 26.0,
+    "humidity_min": 65.0,
+    "humidity_max": 85.0,
+    "rainfall_min": 1200.0,
+    "rainfall_max": 2500.0,
+    "ph_min": 5.5,
+    "ph_max": 6.5,
+    "ph_ideal_min": 6.0,
+    "ph_ideal_max": 6.5,
+    "npk_ideal": {
+      "N": 120,
+      "P": 90,
+      "K": 120
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": false,
+    "duration_days": "Perennial",
+    "states": [
+      "Karnataka",
+      "Kerala",
+      "Tamil Nadu",
+      "Andhra Pradesh",
+      "Odisha"
+    ],
+    "description": "Shade-loving plantation beverage crop concentrated across the Western and Eastern Ghats.",
+    "tips": "Blossom showers in March/April are critical for flowering and fruit setting. Arabica prefers higher altitude than Robusta.",
+    "agronomic_source": "Coffee Board of India (CCRI Balehonnur)"
+  },
+  {
+    "id": "lentil",
+    "name": "Lentil / Masoor",
+    "hindi_name": "मसूर (Masoor)",
+    "category": "Pulse",
+    "seasons": [
+      "Rabi"
+    ],
+    "soil_types": [
+      "Alluvial",
+      "Loamy",
+      "Clay",
+      "Black (Regur)"
+    ],
+    "temp_min": 10.0,
+    "temp_max": 26.0,
+    "temp_ideal_min": 15.0,
+    "temp_ideal_max": 22.0,
+    "humidity_min": 40.0,
+    "humidity_max": 70.0,
+    "rainfall_min": 50.0,
+    "rainfall_max": 120.0,
+    "ph_min": 5.8,
+    "ph_max": 7.5,
+    "ph_ideal_min": 6.2,
+    "ph_ideal_max": 7.0,
+    "npk_ideal": {
+      "N": 20,
+      "P": 40,
+      "K": 20
+    },
+    "water_requirement": "Low",
+    "irrigation_required": false,
+    "duration_days": "100-120",
+    "states": [
+      "Madhya Pradesh",
+      "Uttar Pradesh",
+      "West Bengal",
+      "Bihar",
+      "Rajasthan",
+      "Assam"
+    ],
+    "description": "Hardy winter pulse crop requiring cool climate and modest residual moisture.",
+    "tips": "Can be broadcast as paira / utera crop in standing rice fields just before paddy harvest.",
+    "agronomic_source": "ICAR-IIPR Kanpur"
+  },
+  {
+    "id": "barley",
+    "name": "Barley / Jau",
+    "hindi_name": "जौ (Jau)",
+    "category": "Cereal",
+    "seasons": [
+      "Rabi"
+    ],
+    "soil_types": [
+      "Sandy",
+      "Alluvial",
+      "Loamy",
+      "Clay"
+    ],
+    "temp_min": 8.0,
+    "temp_max": 26.0,
+    "temp_ideal_min": 12.0,
+    "temp_ideal_max": 20.0,
+    "humidity_min": 35.0,
+    "humidity_max": 65.0,
+    "rainfall_min": 40.0,
+    "rainfall_max": 100.0,
+    "ph_min": 6.5,
+    "ph_max": 8.5,
+    "ph_ideal_min": 7.0,
+    "ph_ideal_max": 8.0,
+    "npk_ideal": {
+      "N": 60,
+      "P": 30,
+      "K": 20
+    },
+    "water_requirement": "Low",
+    "irrigation_required": false,
+    "duration_days": "105-120",
+    "states": [
+      "Rajasthan",
+      "Uttar Pradesh",
+      "Madhya Pradesh",
+      "Haryana",
+      "Punjab",
+      "Bihar"
+    ],
+    "description": "Highly salinity and drought-tolerant Rabi cereal used for food, livestock feed, and malting.",
+    "tips": "Thrives even in saline/alkaline marginal lands where wheat fails.",
+    "agronomic_source": "ICAR-IIWBR Karnal"
+  },
+  {
+    "id": "sunflower",
+    "name": "Sunflower",
+    "hindi_name": "सूरजमुखी (Surajmukhi)",
+    "category": "Oilseed",
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ],
+    "soil_types": [
+      "Black (Regur)",
+      "Alluvial",
+      "Loamy",
+      "Red"
+    ],
+    "temp_min": 15.0,
+    "temp_max": 35.0,
+    "temp_ideal_min": 20.0,
+    "temp_ideal_max": 28.0,
+    "humidity_min": 40.0,
+    "humidity_max": 75.0,
+    "rainfall_min": 400.0,
+    "rainfall_max": 750.0,
+    "ph_min": 6.0,
+    "ph_max": 8.0,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.5,
+    "npk_ideal": {
+      "N": 60,
+      "P": 60,
+      "K": 40
+    },
+    "water_requirement": "Moderate",
+    "irrigation_required": true,
+    "duration_days": "85-100",
+    "states": [
+      "Karnataka",
+      "Maharashtra",
+      "Andhra Pradesh",
+      "Telangana",
+      "Bihar",
+      "Punjab",
+      "Haryana",
+      "Tamil Nadu"
+    ],
+    "description": "Photo-insensitive oilseed crop yielding heart-healthy polyunsaturated edible oil.",
+    "tips": "Keep beehives near fields during flowering (ray floret opening) to boost pollination and seed setting.",
+    "agronomic_source": "ICAR-Indian Institute of Oilseeds Research (IIOR)"
+  }
+]

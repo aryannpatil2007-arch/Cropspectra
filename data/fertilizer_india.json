@@ -1,0 +1,572 @@
+{
+  "fertilizers": {
+    "urea": {
+      "name": "Urea",
+      "formula": "CO(NH2)2",
+      "grade": "46-0-0",
+      "n_percent": 46.0,
+      "p_percent": 0.0,
+      "k_percent": 0.0,
+      "standard_bag_kg": 45.0,
+      "description": "Main source of quick-release Nitrogen (46% N) widely used in Indian agriculture."
+    },
+    "dap": {
+      "name": "DAP (Di-Ammonium Phosphate)",
+      "formula": "(NH4)2HPO4",
+      "grade": "18-46-0",
+      "n_percent": 18.0,
+      "p_percent": 46.0,
+      "k_percent": 0.0,
+      "standard_bag_kg": 50.0,
+      "description": "Premium phosphatic fertilizer providing 46% P2O5 and 18% N, ideal for basal application."
+    },
+    "ssp": {
+      "name": "SSP (Single Super Phosphate)",
+      "formula": "Ca(H2PO4)2 + CaSO4",
+      "grade": "0-16-0",
+      "n_percent": 0.0,
+      "p_percent": 16.0,
+      "k_percent": 0.0,
+      "s_percent": 11.0,
+      "standard_bag_kg": 50.0,
+      "description": "Cost-effective phosphorus source (16% P2O5) with beneficial 11% Sulfur and 19% Calcium for oilseeds and pulses."
+    },
+    "mop": {
+      "name": "MOP (Muriate of Potash)",
+      "formula": "KCl",
+      "grade": "0-0-60",
+      "n_percent": 0.0,
+      "p_percent": 0.0,
+      "k_percent": 60.0,
+      "standard_bag_kg": 50.0,
+      "description": "Primary potassium source (60% K2O) enhancing drought tolerance, pest resistance, and grain quality."
+    },
+    "npk_10_26_26": {
+      "name": "NPK Complex (10-26-26)",
+      "grade": "10-26-26",
+      "n_percent": 10.0,
+      "p_percent": 26.0,
+      "k_percent": 26.0,
+      "standard_bag_kg": 50.0,
+      "description": "Balanced complex fertilizer for potassium and phosphorus loving crops like sugarcane, potato, and banana."
+    },
+    "npk_12_32_16": {
+      "name": "NPK Complex (12-32-16)",
+      "grade": "12-32-16",
+      "n_percent": 12.0,
+      "p_percent": 32.0,
+      "k_percent": 16.0,
+      "standard_bag_kg": 50.0,
+      "description": "High phosphorus complex for cereal basal placement."
+    },
+    "npk_19_19_19": {
+      "name": "NPK 19-19-19 (Water Soluble)",
+      "grade": "19-19-19",
+      "n_percent": 19.0,
+      "p_percent": 19.0,
+      "k_percent": 19.0,
+      "standard_bag_kg": 25.0,
+      "description": "100% water-soluble foliar spray / fertigation fertilizer for quick nutrient uptake during active growth."
+    },
+    "zinc_sulphate": {
+      "name": "Zinc Sulphate Heptahydrate (21% Zn)",
+      "grade": "21% Zn + 10% S",
+      "standard_bag_kg": 25.0,
+      "description": "Essential micronutrient correcting Khaira disease in rice and white bud in maize."
+    },
+    "gypsum": {
+      "name": "Agricultural Gypsum (CaSO4.2H2O)",
+      "grade": "Calcium 22% + Sulfur 18%",
+      "standard_bag_kg": 50.0,
+      "description": "Reclaims sodic / alkaline soils (pH > 8.0) and supplies vital Calcium & Sulfur for oilseeds."
+    },
+    "lime": {
+      "name": "Agricultural Lime (CaCO3)",
+      "grade": "Neutralizing Value ~85-95%",
+      "standard_bag_kg": 50.0,
+      "description": "Neutralizes acidic soils (pH < 6.0) to release locked Phosphorus and beneficial soil microbes."
+    }
+  },
+  "crop_doses": {
+    "wheat": {
+      "rdf_ha": {
+        "N": 120,
+        "P": 60,
+        "K": 40
+      },
+      "splits": [
+        {
+          "stage": "Basal (At Sowing)",
+          "n_pct": 50,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Apply at final land preparation / sowing"
+        },
+        {
+          "stage": "1st Top Dressing (CRI Stage)",
+          "n_pct": 25,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "20-25 days after sowing with 1st irrigation"
+        },
+        {
+          "stage": "2nd Top Dressing (Jointing / Tillering)",
+          "n_pct": 25,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "40-45 days after sowing with 2nd irrigation"
+        }
+      ],
+      "organic": "Well decomposed FYM 8-10 tonnes/ha or Vermicompost 2.5 tonnes/ha at field preparation.",
+      "special_advisory": "Apply 25 kg/ha Zinc Sulphate (21%) once every 2-3 years in Zn-deficient soils."
+    },
+    "rice": {
+      "rdf_ha": {
+        "N": 100,
+        "P": 50,
+        "K": 50
+      },
+      "splits": [
+        {
+          "stage": "Basal (Transplanting)",
+          "n_pct": 50,
+          "p_pct": 100,
+          "k_pct": 50,
+          "timing": "Apply during final puddling"
+        },
+        {
+          "stage": "1st Top Dressing (Active Tillering)",
+          "n_pct": 25,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "20-25 days after transplanting"
+        },
+        {
+          "stage": "2nd Top Dressing (Panicle Initiation)",
+          "n_pct": 25,
+          "p_pct": 0,
+          "k_pct": 50,
+          "timing": "40-45 days after transplanting"
+        }
+      ],
+      "organic": "Incorporate Sesbania (Dhaincha) green manure 45 days before puddling or FYM 10 t/ha.",
+      "special_advisory": "Apply 25 kg/ha Zinc Sulphate (21%) at puddling to prevent Khaira disease. Avoid mixing zinc directly with DAP."
+    },
+    "maize": {
+      "rdf_ha": {
+        "N": 120,
+        "P": 60,
+        "K": 40
+      },
+      "splits": [
+        {
+          "stage": "Basal (Sowing)",
+          "n_pct": 33.3,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Band placement 5 cm below seed depth at sowing"
+        },
+        {
+          "stage": "1st Top Dressing (Knee-high Stage)",
+          "n_pct": 33.3,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "30-35 days after sowing followed by earthing up"
+        },
+        {
+          "stage": "2nd Top Dressing (Tasseling / Silking)",
+          "n_pct": 33.4,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "50-55 days after sowing before flowering"
+        }
+      ],
+      "organic": "Apply 10 tonnes/ha FYM or 3 tonnes/ha Vermicompost 15 days before sowing.",
+      "special_advisory": "Maize is a heavy feeder. Side-dress nitrogen 8-10 cm away from plant rows."
+    },
+    "cotton": {
+      "rdf_ha": {
+        "N": 100,
+        "P": 50,
+        "K": 50
+      },
+      "splits": [
+        {
+          "stage": "Basal (Sowing)",
+          "n_pct": 20,
+          "p_pct": 100,
+          "k_pct": 50,
+          "timing": "Apply in furrows at sowing time"
+        },
+        {
+          "stage": "1st Top Dressing (Squaring Stage)",
+          "n_pct": 40,
+          "p_pct": 0,
+          "k_pct": 25,
+          "timing": "45-50 days after sowing"
+        },
+        {
+          "stage": "2nd Top Dressing (Boll Development)",
+          "n_pct": 40,
+          "p_pct": 0,
+          "k_pct": 25,
+          "timing": "70-80 days after sowing"
+        }
+      ],
+      "organic": "FYM 8-10 t/ha + 250 kg/ha Neem cake to improve moisture retention and repel soil nematodes.",
+      "special_advisory": "Foliar spray 1% MgSO4 + 1% 19-19-19 at peak flowering to prevent leaf reddening."
+    },
+    "sugarcane": {
+      "rdf_ha": {
+        "N": 150,
+        "P": 60,
+        "K": 60
+      },
+      "splits": [
+        {
+          "stage": "Basal (Planting)",
+          "n_pct": 30,
+          "p_pct": 100,
+          "k_pct": 50,
+          "timing": "In furrows under cane setts"
+        },
+        {
+          "stage": "1st Top Dressing (Tillering / 45 DAS)",
+          "n_pct": 35,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "45-60 days after planting"
+        },
+        {
+          "stage": "2nd Top Dressing (Grand Growth / Earthing Up)",
+          "n_pct": 35,
+          "p_pct": 0,
+          "k_pct": 50,
+          "timing": "90-120 days after planting during final earthing up"
+        }
+      ],
+      "organic": "Pressmud compost 10-15 tonnes/ha or FYM 20 tonnes/ha with trash mulching.",
+      "special_advisory": "Avoid late nitrogen application after 150 days to prevent excess vegetative growth and low juice sucrose."
+    },
+    "mustard": {
+      "rdf_ha": {
+        "N": 80,
+        "P": 40,
+        "K": 20
+      },
+      "splits": [
+        {
+          "stage": "Basal (Sowing)",
+          "n_pct": 50,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Apply basal dose 4-5 cm below seed depth"
+        },
+        {
+          "stage": "Top Dressing (Rosette / 30 DAS)",
+          "n_pct": 50,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "30-35 days after sowing with 1st irrigation"
+        }
+      ],
+      "organic": "FYM 5-8 tonnes/ha at land preparation.",
+      "special_advisory": "Apply 20-30 kg/ha Elemental Sulfur or 200 kg/ha Gypsum at basal to increase seed oil content by 2-3%."
+    },
+    "chickpea": {
+      "rdf_ha": {
+        "N": 20,
+        "P": 50,
+        "K": 20
+      },
+      "splits": [
+        {
+          "stage": "Basal (Sowing)",
+          "n_pct": 100,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Entire fertilizer placed 5 cm below seed at sowing"
+        }
+      ],
+      "organic": "FYM 5 tonnes/ha + Rhizobium and Phosphate Solubilizing Bacteria (PSB) seed treatment (200g/10kg seed).",
+      "special_advisory": "Pulses fix their own atmospheric N; excessive nitrogen promotes vegetative growth at cost of pod set."
+    },
+    "soybean": {
+      "rdf_ha": {
+        "N": 30,
+        "P": 60,
+        "K": 40
+      },
+      "splits": [
+        {
+          "stage": "Basal (Sowing)",
+          "n_pct": 100,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Entire fertilizer drilled below seed at sowing"
+        }
+      ],
+      "organic": "FYM 5-7.5 tonnes/ha + Bradyrhizobium japonicum and PSB seed inoculation.",
+      "special_advisory": "Apply 20 kg/ha Sulfur through SSP or Gypsum to boost grain protein and oil content."
+    },
+    "groundnut": {
+      "rdf_ha": {
+        "N": 20,
+        "P": 40,
+        "K": 40
+      },
+      "splits": [
+        {
+          "stage": "Basal (Sowing)",
+          "n_pct": 100,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Apply at final land preparation / sowing"
+        }
+      ],
+      "organic": "FYM 7.5 tonnes/ha + Rhizobium seed inoculation.",
+      "special_advisory": "Crucial: Top-dress Gypsum (200-400 kg/ha) at 40-45 DAS (pegging stage) to supply Calcium for pod shell hardening."
+    },
+    "potato": {
+      "rdf_ha": {
+        "N": 150,
+        "P": 80,
+        "K": 100
+      },
+      "splits": [
+        {
+          "stage": "Basal (Planting)",
+          "n_pct": 50,
+          "p_pct": 100,
+          "k_pct": 50,
+          "timing": "Furrow application before placing seed tubers"
+        },
+        {
+          "stage": "Top Dressing (Earthing Up / 30 DAS)",
+          "n_pct": 50,
+          "p_pct": 0,
+          "k_pct": 50,
+          "timing": "30-35 days after planting followed by immediate earthing up"
+        }
+      ],
+      "organic": "Well rotten FYM 20-25 tonnes/ha or Vermicompost 5 tonnes/ha at field preparation.",
+      "special_advisory": "SOP (Sulphate of Potash) is preferred over MOP to prevent chloride toxicity and increase tuber starch."
+    },
+    "tomato": {
+      "rdf_ha": {
+        "N": 100,
+        "P": 60,
+        "K": 60
+      },
+      "splits": [
+        {
+          "stage": "Basal (Transplanting)",
+          "n_pct": 40,
+          "p_pct": 100,
+          "k_pct": 50,
+          "timing": "In planting pits/furrows at transplanting"
+        },
+        {
+          "stage": "1st Top Dressing (Early Vegetative / 30 DAS)",
+          "n_pct": 30,
+          "p_pct": 0,
+          "k_pct": 25,
+          "timing": "30 days after transplanting"
+        },
+        {
+          "stage": "2nd Top Dressing (Fruit Setting / 55 DAS)",
+          "n_pct": 30,
+          "p_pct": 0,
+          "k_pct": 25,
+          "timing": "55-60 days after transplanting"
+        }
+      ],
+      "organic": "FYM 15-20 tonnes/ha + 250 kg/ha Neem cake at land preparation.",
+      "special_advisory": "Foliar spray 0.5% Calcium Nitrate during fruit setting to prevent Blossom End Rot."
+    },
+    "onion": {
+      "rdf_ha": {
+        "N": 100,
+        "P": 50,
+        "K": 50
+      },
+      "splits": [
+        {
+          "stage": "Basal (Transplanting)",
+          "n_pct": 50,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Broadcast and incorporate during final harrowing"
+        },
+        {
+          "stage": "1st Top Dressing (30 DAT)",
+          "n_pct": 25,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "30 days after transplanting with weeding"
+        },
+        {
+          "stage": "2nd Top Dressing (45 DAT / Bulb Formation)",
+          "n_pct": 25,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "45-50 days after transplanting. Stop nitrogen after 60 days."
+        }
+      ],
+      "organic": "FYM 15 tonnes/ha or Poultry manure 5 tonnes/ha at field preparation.",
+      "special_advisory": "Apply 30 kg/ha Sulfur to enhance onion pungency, bulb firmness, and storage quality."
+    },
+    "banana": {
+      "rdf_ha": {
+        "N": 200,
+        "P": 60,
+        "K": 250
+      },
+      "splits": [
+        {
+          "stage": "2nd Month After Planting",
+          "n_pct": 25,
+          "p_pct": 50,
+          "k_pct": 20,
+          "timing": "Ring application 30 cm away from pseudo-stem"
+        },
+        {
+          "stage": "4th Month (Vegetative Peak)",
+          "n_pct": 35,
+          "p_pct": 50,
+          "k_pct": 30,
+          "timing": "Ring application 45 cm away with earthing up"
+        },
+        {
+          "stage": "7th Month (Shooting / Flowering)",
+          "n_pct": 25,
+          "p_pct": 0,
+          "k_pct": 30,
+          "timing": "At inflorescence emergence"
+        },
+        {
+          "stage": "8th Month (Bunch Development)",
+          "n_pct": 15,
+          "p_pct": 0,
+          "k_pct": 20,
+          "timing": "After denavelling (male bud removal)"
+        }
+      ],
+      "organic": "Apply 15-20 kg FYM + 500g Neem cake per plant pit at planting.",
+      "special_advisory": "Potassium is the chief driver of bunch weight and finger sweetness; do not skip late K applications."
+    },
+    "jute": {
+      "rdf_ha": {
+        "N": 60,
+        "P": 30,
+        "K": 30
+      },
+      "splits": [
+        {
+          "stage": "Basal (Sowing)",
+          "n_pct": 50,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Broadcast during final land preparation"
+        },
+        {
+          "stage": "Top Dressing (35-40 DAS)",
+          "n_pct": 50,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "Apply after 1st weeding and thinning"
+        }
+      ],
+      "organic": "FYM 5 tonnes/ha before sowing.",
+      "special_advisory": "Avoid excess nitrogen which makes stems succulent and reduces fibre tensile strength."
+    },
+    "tea": {
+      "rdf_ha": {
+        "N": 120,
+        "P": 40,
+        "K": 80
+      },
+      "splits": [
+        {
+          "stage": "1st Split (Pre-Monsoon / April)",
+          "n_pct": 40,
+          "p_pct": 50,
+          "k_pct": 40,
+          "timing": "After first seasonal rains"
+        },
+        {
+          "stage": "2nd Split (Mid-Monsoon / July)",
+          "n_pct": 30,
+          "p_pct": 50,
+          "k_pct": 30,
+          "timing": "Broadcast evenly under bush canopy"
+        },
+        {
+          "stage": "3rd Split (Post-Monsoon / September)",
+          "n_pct": 30,
+          "p_pct": 0,
+          "k_pct": 30,
+          "timing": "Before cessation of active growth"
+        }
+      ],
+      "organic": "Compost / Vermicompost 5-8 tonnes/ha once a year.",
+      "special_advisory": "Zinc Sulphate (1-2%) + Boric Acid (0.5%) foliar spray 4 times a year maintains young flush shoot vigor."
+    },
+    "coffee": {
+      "rdf_ha": {
+        "N": 120,
+        "P": 90,
+        "K": 120
+      },
+      "splits": [
+        {
+          "stage": "Pre-Monsoon Split (May)",
+          "n_pct": 50,
+          "p_pct": 50,
+          "k_pct": 50,
+          "timing": "Before heavy monsoon downpours"
+        },
+        {
+          "stage": "Post-Monsoon Split (October)",
+          "n_pct": 50,
+          "p_pct": 50,
+          "k_pct": 50,
+          "timing": "During berry expansion stage"
+        }
+      ],
+      "organic": "Compost 5 tonnes/ha or cattle manure around drip circle.",
+      "special_advisory": "Apply Dolomite (1-2 tonnes/ha) every 3 years if soil pH drops below 5.5."
+    },
+    "default": {
+      "rdf_ha": {
+        "N": 80,
+        "P": 40,
+        "K": 40
+      },
+      "splits": [
+        {
+          "stage": "Basal (Sowing / Planting)",
+          "n_pct": 50,
+          "p_pct": 100,
+          "k_pct": 100,
+          "timing": "Apply at final land preparation"
+        },
+        {
+          "stage": "Top Dressing (Vegetative Stage)",
+          "n_pct": 50,
+          "p_pct": 0,
+          "k_pct": 0,
+          "timing": "30-40 days after sowing with irrigation"
+        }
+      ],
+      "organic": "Well-rotted FYM 5-10 tonnes/ha or Vermicompost 2-3 tonnes/ha.",
+      "special_advisory": "Conduct periodic soil tests to fine-tune nutrient doses based on local soil fertility."
+    }
+  },
+  "unit_conversions": {
+    "hectare": 1.0,
+    "acre": 0.404686,
+    "bigha": 0.25
+  },
+  "disclaimer": "This is a general guideline based on ICAR agronomic standards. Please get a soil test from your nearest Krishi Vigyan Kendra (KVK) / Soil Health Card laboratory and follow your State Agriculture Department recommendations."
+}

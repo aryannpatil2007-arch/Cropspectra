@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 Fertilizer Recommendation & Schedule | CropSpectra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+
+    body, html {
+      min-height: 100%;
+      overflow-x: hidden;
+      color: white;
+      margin: 0;
+      background: radial-gradient(circle at 50% 50%, #1b2735, #090a0f);
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    nav h1 { font-size: 24px; color: #00ffa1; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover, nav ul li a.active { color: #00ffa1; }
+
+    /* CONTAINER */
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      width: 92%;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 24px;
+      padding: 35px;
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      margin: 110px auto 60px auto;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .header-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header-section h1 {
+      font-size: 30px;
+      color: #00ffa1;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .header-section p {
+      color: #dcdcdc;
+      font-size: 15px;
+    }
+
+    /* FORM CARD */
+    .form-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 255, 161, 0.3);
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .form-group {
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #00ffa1;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(27, 39, 53, 0.9);
+      color: white;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #00ffa1;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #00b09b, #96c93d);
+      color: white;
+      padding: 13px 40px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 176, 155, 0.4);
+      margin-top: 25px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 176, 155, 0.6);
+    }
+
+    /* RESULT STYLING */
+    .results-section {
+      margin-top: 35px;
+      text-align: left;
+    }
+
+    .plan-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 161, 0.4);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 25px;
+    }
+
+    .plan-card h3 {
+      color: #ffe600;
+      font-size: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fert-doses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 15px 0;
+    }
+    .fert-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .fert-box .fert-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #00ffa1;
+      margin-bottom: 5px;
+    }
+    .fert-box .fert-kg {
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+    }
+    .fert-box .fert-bags {
+      font-size: 13px;
+      color: #ffd166;
+      margin-top: 4px;
+    }
+
+    /* TIMELINE / SPLIT SCHEDULE */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 14px;
+    }
+    .schedule-table th, .schedule-table td {
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: left;
+    }
+    .schedule-table th {
+      background: rgba(0, 255, 161, 0.15);
+      color: #00ffa1;
+      font-weight: 600;
+    }
+    .schedule-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .advice-box {
+      background: rgba(255, 170, 0, 0.12);
+      border-left: 4px solid #ffaa00;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin: 15px 0;
+      font-size: 14px;
+      color: #ffe8b3;
+    }
+
+    .disclaimer-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.25);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 12px;
+      color: #a0aec0;
+      margin-top: 25px;
+      line-height: 1.6;
+    }
+
+    /* MULTI-LANG & TTS */
+    .multi-lang-section {
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 255, 161, 0.3);
+      text-align: center;
+    }
+    .multi-lang-section select {
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 255, 161, 0.4);
+      background: rgba(27, 39, 53, 0.95);
+      color: white;
+      outline: none;
+      margin-right: 10px;
+    }
+    .translate-btn {
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      color: white;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .speak-btn {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+    .translated-box {
+      display: none;
+      margin-top: 15px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 16px;
+      border-radius: 12px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px 0;
+      background: rgba(0,0,0,0.5);
+      color: rgba(255,255,255,0.7);
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h1>🌿 CropSpectra</h1>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('crop_recommendation') }}">Crop Advisor</a></li>
+      <li><a href="{{ url_for('fertilizer_recommendation') }}" class="active">Fertilizer Guide</a></li>
+      <li><a href="{{ url_for('predict_page') }}">Disease Predict</a></li>
+      <li><a href="{{ url_for('history_page') }}">My History</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('blogs') }}">Blogs</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      {% if user %}
+        <li><a href="{{ url_for('logout') }}" style="color: #ff9f8a;">Logout ({{ user }})</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="header-section">
+      <h1>🧪 Smart Fertilizer Dosage & Schedule Guide</h1>
+      <p>Precision Fertilizer Formulation (DAP, Urea, MOP, SSP) & Split Application Timetable for Indian Farmers</p>
+    </div>
+
+    <!-- INPUT FORM -->
+    <form method="POST" action="{{ url_for('fertilizer_recommendation') }}" class="form-card">
+      <div class="form-grid">
+        <!-- Crop Selection -->
+        <div class="form-group">
+          <label for="crop_id">🌾 Target Crop: *</label>
+          <select name="crop_id" id="crop_id" required>
+            {% for c in crops %}
+              <option value="{{ c.id }}" {% if selected_crop == c.id or (inputs and inputs.crop_id == c.id) %}selected{% endif %}>
+                {{ c.name }} ({{ c.hindi_name }})
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Land Area -->
+        <div class="form-group">
+          <label for="area">📐 Farm Area / Land Size: *</label>
+          <input type="number" step="0.1" min="0.1" name="area" id="area" placeholder="e.g. 2.5" required value="{{ inputs.area if inputs else '1.0' }}">
+        </div>
+
+        <!-- Land Area Unit -->
+        <div class="form-group">
+          <label for="area_unit">📏 Land Area Unit: *</label>
+          <select name="area_unit" id="area_unit" required>
+            <option value="acre" {% if not inputs or inputs.area_unit == 'acre' %}selected{% endif %}>Acre (एकड़)</option>
+            <option value="hectare" {% if inputs and inputs.area_unit == 'hectare' %}selected{% endif %}>Hectare (हेक्टेयर)</option>
+            <option value="bigha" {% if inputs and inputs.area_unit == 'bigha' %}selected{% endif %}>Bigha (बीघा)</option>
+          </select>
+        </div>
+
+        <!-- Soil pH -->
+        <div class="form-group">
+          <label for="soil_ph">🧪 Soil pH Level:</label>
+          <input type="number" step="0.1" min="3.0" max="10.0" name="soil_ph" id="soil_ph" placeholder="e.g. 6.8" value="{{ inputs.soil_ph if inputs else (request.args.get('ph') or '6.8') }}">
+        </div>
+
+        <!-- Soil Available N -->
+        <div class="form-group">
+          <label for="soil_n">🌿 Soil Nitrogen (kg/ha or Low/Med/High):</label>
+          <input type="text" name="soil_n" id="soil_n" placeholder="e.g. medium, or 280" value="{{ inputs.soil_n if inputs else (request.args.get('n') or 'medium') }}">
+        </div>
+
+        <!-- Soil Available P -->
+        <div class="form-group">
+          <label for="soil_p">🌾 Soil Phosphorus (kg/ha or Low/Med/High):</label>
+          <input type="text" name="soil_p" id="soil_p" placeholder="e.g. medium, or 25" value="{{ inputs.soil_p if inputs else (request.args.get('p') or 'medium') }}">
+        </div>
+
+        <!-- Soil Available K -->
+        <div class="form-group">
+          <label for="soil_k">🍂 Soil Potassium (kg/ha or Low/Med/High):</label>
+          <input type="text" name="soil_k" id="soil_k" placeholder="e.g. medium, or 180" value="{{ inputs.soil_k if inputs else (request.args.get('k') or 'medium') }}">
+        </div>
+
+        <!-- Soil Type -->
+        <div class="form-group">
+          <label for="soil_type">🏜️ Soil Type:</label>
+          <select name="soil_type" id="soil_type">
+            <option value="Alluvial" {% if (inputs and inputs.soil_type == 'Alluvial') or request.args.get('soil_type') == 'Alluvial' %}selected{% endif %}>Alluvial (जलोढ़)</option>
+            <option value="Black (Regur)" {% if (inputs and inputs.soil_type == 'Black (Regur)') or request.args.get('soil_type') == 'Black (Regur)' %}selected{% endif %}>Black / Regur (काली)</option>
+            <option value="Red" {% if (inputs and inputs.soil_type == 'Red') or request.args.get('soil_type') == 'Red' %}selected{% endif %}>Red (लाल)</option>
+            <option value="Laterite" {% if (inputs and inputs.soil_type == 'Laterite') or request.args.get('soil_type') == 'Laterite' %}selected{% endif %}>Laterite (लैटेराइट)</option>
+            <option value="Sandy" {% if (inputs and inputs.soil_type == 'Sandy') or request.args.get('soil_type') == 'Sandy' %}selected{% endif %}>Sandy (बलुई)</option>
+            <option value="Loamy" {% if (inputs and inputs.soil_type == 'Loamy') or request.args.get('soil_type') == 'Loamy' %}selected{% endif %}>Loamy (दोमट)</option>
+            <option value="Clay" {% if (inputs and inputs.soil_type == 'Clay') or request.args.get('soil_type') == 'Clay' %}selected{% endif %}>Clay (चिकनी)</option>
+          </select>
+        </div>
+
+        <!-- Growth Stage -->
+        <div class="form-group">
+          <label for="growth_stage">🌱 Current Growth Stage (Optional):</label>
+          <select name="growth_stage" id="growth_stage">
+            <option value="Sowing / Planting (Basal)">Sowing / Planting (Basal Dose)</option>
+            <option value="Early Vegetative / Tillering">Early Vegetative / Tillering (1st Top Dressing)</option>
+            <option value="Flowering / Panicle Initiation">Flowering / Panicle Initiation (2nd Top Dressing)</option>
+            <option value="Full Crop Season Plan">Full Crop Season Plan (All Stages)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="submit" class="submit-btn">📊 Calculate Fertilizer Plan</button>
+      </div>
+    </form>
+
+    <!-- RESULTS SECTION -->
+    {% if result %}
+      <div class="results-section">
+        <div class="plan-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px; margin-bottom: 15px;">
+            <div>
+              <h2 style="color: #00ffa1; font-size: 22px;">📋 Fertilizer Schedule for {{ result.crop_name }}</h2>
+              <span style="color: #a0aec0; font-size: 14px;">Total Land Area: <strong>{{ result.area_entered }} {{ result.area_unit }}</strong> (~{{ result.area_ha }} Hectares)</span>
+            </div>
+            <span style="background: rgba(0, 255, 161, 0.2); border: 1px solid #00ffa1; color: #00ffa1; padding: 4px 12px; border-radius: 12px; font-size: 13px; font-weight: 600;">
+              Total N-P-K Required: {{ result.net_nutrients_req.N }}N - {{ result.net_nutrients_req.P }}P - {{ result.net_nutrients_req.K }}K kg
+            </span>
+          </div>
+
+          <!-- COMMERCIAL FERTILIZER PLAN A -->
+          <h3>🏆 {{ result.plan_a.title }}</h3>
+          <div class="fert-doses-grid">
+            <div class="fert-box">
+              <div class="fert-name">DAP (18-46-0)</div>
+              <div class="fert-kg">{{ result.plan_a.dap_kg }} kg</div>
+              <div class="fert-bags">({{ result.plan_a.dap_bags_50kg }} bags of 50kg)</div>
+            </div>
+
+            <div class="fert-box">
+              <div class="fert-name">Urea (46% N)</div>
+              <div class="fert-kg">{{ result.plan_a.urea_kg }} kg</div>
+              <div class="fert-bags">({{ result.plan_a.urea_bags_45kg }} bags of 45kg)</div>
+            </div>
+
+            <div class="fert-box">
+              <div class="fert-name">MOP (60% K2O)</div>
+              <div class="fert-kg">{{ result.plan_a.mop_kg }} kg</div>
+              <div class="fert-bags">({{ result.plan_a.mop_bags_50kg }} bags of 50kg)</div>
+            </div>
+          </div>
+
+          <!-- ALTERNATIVE PLAN B -->
+          <div style="margin-top: 20px; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 15px;">
+            <h4 style="color: #ffd166; font-size: 16px; margin-bottom: 10px;">🔄 Alternative Option: {{ result.plan_b.title }}</h4>
+            <p style="font-size: 13px; color: #dcdcdc; margin-bottom: 10px;">
+              If DAP is unavailable or for Sulfur-loving crops (Mustard, Groundnut, Pulses), you can substitute with:
+              <strong>SSP: {{ result.plan_b.ssp_kg }} kg ({{ result.plan_b.ssp_bags_50kg }} bags)</strong> +
+              <strong>Urea: {{ result.plan_b.urea_kg }} kg ({{ result.plan_b.urea_bags_45kg }} bags)</strong> +
+              <strong>MOP: {{ result.plan_b.mop_kg }} kg</strong>.
+            </p>
+          </div>
+
+          <!-- SPLIT SCHEDULE TABLE -->
+          <h3 style="margin-top: 25px;">⏱️ When to Apply (Split Application Timetable)</h3>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Crop Growth Stage</th>
+                <th>Timing & Method</th>
+                <th>Fertilizer Dose for {{ result.area_entered }} {{ result.area_unit }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for split in result.split_schedule %}
+                <tr>
+                  <td><strong>{{ split.stage }}</strong></td>
+                  <td>{{ split.timing }}</td>
+                  <td style="color: #00ffa1; font-weight: 600;">{{ split.summary }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <!-- ORGANIC MANURE -->
+          <div class="advice-box" style="border-left-color: #00ffa1; background: rgba(0, 255, 161, 0.08); color: #e2e8f0;">
+            <strong style="color: #00ffa1;">🌿 Organic Manure Advice:</strong><br>
+            {{ result.organic_advice }}
+          </div>
+
+          <!-- AMENDMENTS & MICRONUTRIENTS -->
+          {% if result.amendments and result.amendments|length > 0 %}
+            <h3 style="margin-top: 20px;">🧪 Soil Amendments & Micronutrients</h3>
+            {% for amend in result.amendments %}
+              <div class="advice-box">
+                <strong>{{ amend.type }}:</strong> {{ amend.name }} — <strong>{{ amend.quantity }}</strong><br>
+                <span style="font-size: 13px;">{{ amend.advice }}</span>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          <!-- SAFETY & TIPS -->
+          <h3 style="margin-top: 20px;">⚠️ Best Practices & Safety Notes</h3>
+          <ul style="margin-left: 20px; font-size: 13px; line-height: 1.8; color: #e0e0e0;">
+            {% for tip in result.safety_tips %}
+              <li>{{ tip }}</li>
+            {% endfor %}
+          </ul>
+
+          {% if result.special_advisory %}
+            <p style="font-size: 13px; color: #ffd166; margin-top: 12px;"><strong>💡 Crop Specific Advisory:</strong> {{ result.special_advisory }}</p>
+          {% endif %}
+
+          <div class="disclaimer-box">
+            <strong>⚠️ Disclaimer:</strong> {{ result.disclaimer }}
+          </div>
+        </div>
+
+        <!-- TRANSLATION & AUDIO -->
+        <div class="multi-lang-section">
+          <h3 style="color: #00ffa1; margin-bottom: 12px; font-size: 18px;">🌐 Translate & Listen to Fertilizer Plan</h3>
+          <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <select id="fertLangSelect">
+              <option value="">-- Select Language --</option>
+              <option value="hi">Hindi (हिंदी)</option>
+              <option value="bn">Bengali (বাংলা)</option>
+              <option value="mr">Marathi (मराठी)</option>
+              <option value="bho">Bhojpuri (भोजपुरी)</option>
+            </select>
+            <button class="translate-btn" onclick="translateFertilizer()">Translate</button>
+            <button id="fertTtsBtn" class="speak-btn" onclick="speakFertilizer()">🔊 Listen (English)</button>
+          </div>
+          <audio id="fertTtsPlayer" style="display: none;"></audio>
+          <div id="fertTransBox" class="translated-box"></div>
+        </div>
+      </div>
+
+      <script>
+        const fertResult = {{ result | tojson }};
+        const fertSummary = "Fertilizer plan for " + fertResult.crop_name + " on " + fertResult.area_entered + " " + fertResult.area_unit + ". Recommended: DAP " + fertResult.plan_a.dap_kg + " kg, Urea " + fertResult.plan_a.urea_kg + " kg, MOP " + fertResult.plan_a.mop_kg + " kg. " + fertResult.organic_advice;
+
+        function speakFertilizer() {
+          const btn = document.getElementById('fertTtsBtn');
+          const player = document.getElementById('fertTtsPlayer');
+          
+          btn.disabled = true;
+          btn.textContent = '⏳ Generating Audio...';
+
+          fetch('/text_to_speech', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              prediction: fertResult.crop_name + " Fertilizer Plan",
+              description: fertSummary,
+              symptoms: [],
+              treatment: fertResult.organic_advice,
+              prevention: "Follow split schedules carefully."
+            })
+          })
+          .then(r => r.json())
+          .then(data => {
+            btn.disabled = false;
+            btn.textContent = '🔊 Listen (English)';
+            if (data.success) {
+              player.src = data.audio_url;
+              player.play();
+            } else {
+              alert('Speech error: ' + (data.error || 'Unknown'));
+            }
+          })
+          .catch(e => {
+            btn.disabled = false;
+            btn.textContent = '🔊 Listen (English)';
+            alert('Speech generation failed');
+          });
+        }
+
+        function translateFertilizer() {
+          const lang = document.getElementById('fertLangSelect').value;
+          if (!lang) {
+            alert('Please select a language first!');
+            return;
+          }
+          const box = document.getElementById('fertTransBox');
+          box.style.display = 'block';
+          box.textContent = '⏳ Translating fertilizer advisory...';
+
+          fetch('/translate_text', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              target_lang: lang,
+              prediction: fertResult.crop_name + " Fertilizer Plan",
+              description: fertSummary,
+              symptoms: [],
+              treatment: fertResult.organic_advice,
+              prevention: fertResult.special_advisory || "Follow recommended dosage"
+            })
+          })
+          .then(r => r.json())
+          .then(data => {
+            if (data.success && data.translated) {
+              const t = data.translated;
+              box.innerHTML = '<strong style=\"color:#00ffa1;\">' + t.prediction + '</strong><br>' +
+                              '<p>' + t.description + '</p>' +
+                              '<p style=\"color:#ffe600; margin-top:8px;\"><strong>सलाह / Advisory:</strong> ' + t.treatment + '</p>';
+            } else {
+              box.textContent = 'Translation service currently busy. Please retry in a moment.';
+            }
+          })
+          .catch(e => {
+            box.textContent = 'Translation failed. Please check internet connection.';
+          });
+        }
+      </script>
+    {% endif %}
+  </div>
+
+  <footer class="footer">
+    © 2026 CropSpectra | Smart Vision for a Healthier Harvest 🌿
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 70 },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.35 },
+        "size": { "value": 3 },
+        "move": { "speed": 1.8 }
+      },
+      "interactivity": {
+        "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>

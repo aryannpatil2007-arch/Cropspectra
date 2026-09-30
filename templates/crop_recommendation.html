@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌾 Crop Recommendation Advisor | CropSpectra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+
+    body, html {
+      min-height: 100%;
+      overflow-x: hidden;
+      color: white;
+      margin: 0;
+      background: radial-gradient(circle at 50% 50%, #1b2735, #090a0f);
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    nav h1 { font-size: 24px; color: #00ffa1; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover, nav ul li a.active { color: #00ffa1; }
+
+    /* CONTAINER */
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      width: 92%;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 24px;
+      padding: 35px;
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      margin: 110px auto 60px auto;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .header-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header-section h1 {
+      font-size: 30px;
+      color: #00ffa1;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .header-section p {
+      color: #dcdcdc;
+      font-size: 15px;
+    }
+
+    /* BADGES */
+    .season-badge {
+      display: inline-block;
+      background: rgba(0, 255, 161, 0.15);
+      border: 1px solid #00ffa1;
+      color: #00ffa1;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* FORM GRID */
+    .form-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 255, 161, 0.3);
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .form-group {
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #00ffa1;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(27, 39, 53, 0.9);
+      color: white;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #00ffa1;
+    }
+
+    .weather-btn {
+      background: linear-gradient(135deg, #4b6cb7, #182848);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 9px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .weather-btn:hover {
+      background: linear-gradient(135deg, #5c84e3, #243b6b);
+      transform: translateY(-2px);
+    }
+
+    .weather-status {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #ffd166;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #00b09b, #96c93d);
+      color: white;
+      padding: 13px 40px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 176, 155, 0.4);
+      margin-top: 25px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 176, 155, 0.6);
+    }
+
+    /* RESULT CARDS */
+    .results-section {
+      margin-top: 35px;
+      text-align: left;
+    }
+    .results-section h2 {
+      font-size: 24px;
+      color: #00ffa1;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .crop-card {
+      background: rgba(0, 0, 0, 0.38);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 20px;
+      transition: transform 0.3s, border-color 0.3s;
+      position: relative;
+    }
+    .crop-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 255, 161, 0.5);
+    }
+    .crop-card.top-match {
+      border: 2px solid #00ffa1;
+      background: rgba(0, 255, 161, 0.05);
+    }
+
+    .crop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+    }
+
+    .crop-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffe600;
+    }
+    .crop-hindi {
+      font-size: 15px;
+      color: #a0aec0;
+      margin-left: 8px;
+    }
+
+    .suitability-pill {
+      background: rgba(0, 255, 161, 0.2);
+      border: 1px solid #00ffa1;
+      color: #00ffa1;
+      padding: 4px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin: 10px 0 16px 0;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00ffa1, #96c93d);
+      border-radius: 4px;
+    }
+
+    .crop-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+    .meta-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    .meta-item strong { color: #00ffa1; }
+
+    .reasons-list {
+      list-style: none;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+    .reasons-list li {
+      margin-bottom: 6px;
+      color: #e0e0e0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .reasons-list li span.icon { color: #00ffa1; font-weight: bold; }
+
+    .warnings-list {
+      list-style: none;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+    .warnings-list li {
+      margin-bottom: 5px;
+      color: #ffaa00;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .action-btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .action-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+    }
+
+    /* MULTI-LANG & TTS */
+    .multi-lang-section {
+      margin-top: 30px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 255, 161, 0.3);
+      text-align: center;
+    }
+    .multi-lang-section select {
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 255, 161, 0.4);
+      background: rgba(27, 39, 53, 0.95);
+      color: white;
+      outline: none;
+      margin-right: 10px;
+    }
+    .translate-btn {
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      color: white;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .speak-btn {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+
+    .translated-box {
+      display: none;
+      margin-top: 18px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 18px;
+      border-radius: 12px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px 0;
+      background: rgba(0,0,0,0.5);
+      color: rgba(255,255,255,0.7);
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h1>🌿 CropSpectra</h1>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('crop_recommendation') }}" class="active">Crop Advisor</a></li>
+      <li><a href="{{ url_for('fertilizer_recommendation') }}">Fertilizer Guide</a></li>
+      <li><a href="{{ url_for('predict_page') }}">Disease Predict</a></li>
+      <li><a href="{{ url_for('history_page') }}">My History</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('blogs') }}">Blogs</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      {% if user %}
+        <li><a href="{{ url_for('logout') }}" style="color: #ff9f8a;">Logout ({{ user }})</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="header-section">
+      <h1>🌾 Indian Crop Recommendation Advisor</h1>
+      <p>Intelligent Agronomic Advisory matching your Soil, Climate & Season to Optimal High-Yield Crops</p>
+      <div class="season-badge">📅 Current Suggested Season: {{ suggested_season }}</div>
+    </div>
+
+    <!-- FORM CARD -->
+    <form method="POST" action="{{ url_for('crop_recommendation') }}" class="form-card">
+      <div class="form-grid">
+        <!-- State -->
+        <div class="form-group">
+          <label for="state">📍 State / Union Territory: *</label>
+          <select name="state" id="state" required>
+            <option value="">-- Select State --</option>
+            {% for s in states %}
+              <option value="{{ s }}" {% if inputs and inputs.state == s %}selected{% endif %}>{{ s }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- District -->
+        <div class="form-group">
+          <label for="district">🏙️ District (Optional):</label>
+          <input type="text" name="district" id="district" placeholder="e.g. Ludhiana, Nashik, Burdwan" value="{{ inputs.district if inputs else '' }}">
+        </div>
+
+        <!-- Season -->
+        <div class="form-group">
+          <label for="season">🌱 Agricultural Season: *</label>
+          <select name="season" id="season" required>
+            <option value="Kharif" {% if (inputs and inputs.season == 'Kharif') or (not inputs and suggested_season == 'Kharif') %}selected{% endif %}>Kharif (Monsoon: Jun - Oct)</option>
+            <option value="Rabi" {% if (inputs and inputs.season == 'Rabi') or (not inputs and suggested_season == 'Rabi') %}selected{% endif %}>Rabi (Winter: Nov - Mar)</option>
+            <option value="Zaid" {% if (inputs and inputs.season == 'Zaid') or (not inputs and suggested_season == 'Zaid') %}selected{% endif %}>Zaid (Summer: Apr - Jun)</option>
+          </select>
+        </div>
+
+        <!-- Soil Type -->
+        <div class="form-group">
+          <label for="soil_type">🏜️ Soil Type: *</label>
+          <select name="soil_type" id="soil_type" required>
+            <option value="Alluvial" {% if inputs and inputs.soil_type == 'Alluvial' %}selected{% endif %}>Alluvial Soil (जलोढ़ मिट्टी)</option>
+            <option value="Black (Regur)" {% if inputs and inputs.soil_type == 'Black (Regur)' %}selected{% endif %}>Black / Regur Soil (काली मिट्टी)</option>
+            <option value="Red" {% if inputs and inputs.soil_type == 'Red' %}selected{% endif %}>Red Soil (लाल मिट्टी)</option>
+            <option value="Laterite" {% if inputs and inputs.soil_type == 'Laterite' %}selected{% endif %}>Laterite Soil (लैटेराइट मिट्टी)</option>
+            <option value="Sandy" {% if inputs and inputs.soil_type == 'Sandy' %}selected{% endif %}>Sandy / Arid Soil (बलुई मिट्टी)</option>
+            <option value="Loamy" {% if inputs and inputs.soil_type == 'Loamy' %}selected{% endif %}>Loamy Soil (दोमट मिट्टी)</option>
+            <option value="Clay" {% if inputs and inputs.soil_type == 'Clay' %}selected{% endif %}>Clay / Heavy Soil (चिकनी मिट्टी)</option>
+          </select>
+        </div>
+
+        <!-- Temperature -->
+        <div class="form-group">
+          <label for="temperature">🌡️ Average Temperature (°C): *</label>
+          <input type="number" step="0.1" name="temperature" id="temperature" placeholder="e.g. 24.5" required value="{{ inputs.temperature if inputs else '' }}">
+        </div>
+
+        <!-- Air Humidity -->
+        <div class="form-group">
+          <label for="humidity">💧 Air Humidity (%): *</label>
+          <input type="number" step="0.1" min="0" max="100" name="humidity" id="humidity" placeholder="e.g. 65" required value="{{ inputs.humidity if inputs else '' }}">
+        </div>
+
+        <!-- Rainfall -->
+        <div class="form-group">
+          <label for="rainfall">🌧️ Rainfall (mm, annual/seasonal): *</label>
+          <input type="number" step="0.1" min="0" name="rainfall" id="rainfall" placeholder="e.g. 750" required value="{{ inputs.rainfall if inputs else '' }}">
+        </div>
+
+        <!-- Soil pH -->
+        <div class="form-group">
+          <label for="ph">🧪 Soil pH (1 - 14): *</label>
+          <input type="number" step="0.1" min="3.0" max="10.0" name="ph" id="ph" placeholder="e.g. 6.8" required value="{{ inputs.ph if inputs else '6.5' }}">
+        </div>
+
+        <!-- Nitrogen -->
+        <div class="form-group">
+          <label for="nitrogen">🌿 Available Nitrogen (N kg/ha, optional):</label>
+          <input type="number" step="0.1" name="nitrogen" id="nitrogen" placeholder="e.g. 100" value="{{ inputs.nitrogen if inputs else '' }}">
+        </div>
+
+        <!-- Phosphorus -->
+        <div class="form-group">
+          <label for="phosphorus">🌾 Available Phosphorus (P kg/ha, optional):</label>
+          <input type="number" step="0.1" name="phosphorus" id="phosphorus" placeholder="e.g. 50" value="{{ inputs.phosphorus if inputs else '' }}">
+        </div>
+
+        <!-- Potassium -->
+        <div class="form-group">
+          <label for="potassium">🍂 Available Potassium (K kg/ha, optional):</label>
+          <input type="number" step="0.1" name="potassium" id="potassium" placeholder="e.g. 40" value="{{ inputs.potassium if inputs else '' }}">
+        </div>
+
+        <!-- Irrigation -->
+        <div class="form-group">
+          <label for="irrigation">🚿 Assured Irrigation Available? *</label>
+          <select name="irrigation" id="irrigation" required>
+            <option value="Yes" {% if not inputs or inputs.irrigation == 'Yes' %}selected{% endif %}>Yes (Tube-well / Canal / Drip)</option>
+            <option value="No" {% if inputs and inputs.irrigation == 'No' %}selected{% endif %}>No (Rainfed / Dependent on rain)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-top: 15px; text-align: center;">
+        <button type="button" class="weather-btn" onclick="fetchLiveWeather()">
+          🌤️ Fetch Current Weather (Auto-fill Temp/Humidity/Rain)
+        </button>
+        <div id="weatherStatus" class="weather-status"></div>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="submit" class="submit-btn">🔍 Analyze & Recommend Crops</button>
+      </div>
+    </form>
+
+    <!-- RESULTS SECTION -->
+    {% if recommendations %}
+      <div class="results-section">
+        <h2>🏆 Top Recommended Crops for Your Farm</h2>
+
+        {% for crop in recommendations %}
+          <div class="crop-card {% if loop.first %}top-match{% endif %}">
+            <div class="crop-header">
+              <div>
+                <span class="crop-title">#{{ loop.index }} {{ crop.name }}</span>
+                <span class="crop-hindi">({{ crop.hindi_name }})</span>
+                <span style="font-size: 12px; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 8px; margin-left: 6px;">{{ crop.category }}</span>
+              </div>
+              <span class="suitability-pill">{{ crop.suitability }}% Match</span>
+            </div>
+
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: {{ crop.suitability }}%;"></div>
+            </div>
+
+            <div class="crop-meta-grid">
+              <div class="meta-item">⏱️ <strong>Duration:</strong> {{ crop.duration_days }} days</div>
+              <div class="meta-item">💧 <strong>Water Need:</strong> {{ crop.water_requirement }}</div>
+              <div class="meta-item">⚖️ <strong>Ideal N-P-K:</strong> {{ crop.npk_ideal.N }}-{{ crop.npk_ideal.P }}-{{ crop.npk_ideal.K }} kg/ha</div>
+            </div>
+
+            <p style="font-size: 14px; color: #e2e8f0; margin-bottom: 10px;">{{ crop.description }}</p>
+
+            <!-- Reasons Checklist -->
+            <strong style="font-size: 13px; color: #00ffa1;">✅ Why this crop matches your conditions:</strong>
+            <ul class="reasons-list">
+              {% for reason in crop.reasons %}
+                <li><span class="icon">✔</span> {{ reason }}</li>
+              {% endfor %}
+            </ul>
+
+            <!-- Warnings -->
+            {% if crop.warnings and crop.warnings|length > 0 %}
+              <strong style="font-size: 13px; color: #ffaa00;">⚠️ Agronomic Considerations:</strong>
+              <ul class="warnings-list">
+                {% for warn in crop.warnings %}
+                  <li><span>⚠️</span> {{ warn }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            <p style="font-size: 12px; color: #a0aec0; margin-top: 8px;"><strong>💡 Expert Tip:</strong> {{ crop.tips }}</p>
+
+            <div style="text-align: right; margin-top: 10px;">
+              <a href="{{ url_for('fertilizer_recommendation') }}?crop={{ crop.crop_id }}&soil_type={{ inputs.soil_type }}&ph={{ inputs.ph }}&n={{ inputs.nitrogen }}&p={{ inputs.phosphorus }}&k={{ inputs.potassium }}" class="action-btn">
+                🧪 Get Fertilizer Plan for {{ crop.name }} ➡
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+
+        <!-- Multilingual Translation & Audio Support -->
+        <div class="multi-lang-section">
+          <h3 style="color: #00ffa1; margin-bottom: 12px; font-size: 18px;">🌐 Translate & Listen to Advisory</h3>
+          <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <select id="recLangSelect">
+              <option value="">-- Select Language --</option>
+              <option value="hi">Hindi (हिंदी)</option>
+              <option value="bn">Bengali (বাংলা)</option>
+              <option value="mr">Marathi (मराठी)</option>
+              <option value="bho">Bhojpuri (भोजपुरी)</option>
+            </select>
+            <button class="translate-btn" onclick="translateRecommendation()">Translate</button>
+            <button id="ttsBtn" class="speak-btn" onclick="speakRecommendation()">🔊 Listen (English)</button>
+          </div>
+          <audio id="ttsPlayer" style="display: none;"></audio>
+          <div id="transBox" class="translated-box"></div>
+        </div>
+      </div>
+
+      <script>
+        const topCrop = {{ recommendations[0] | tojson }};
+        const summaryText = "Top Recommended Crop is " + topCrop.name + " with " + topCrop.suitability + " percent suitability score. " + topCrop.description + " Ideal NPK is " + topCrop.npk_ideal.N + " " + topCrop.npk_ideal.P + " " + topCrop.npk_ideal.K + " kg per hectare. " + topCrop.tips;
+
+        function speakRecommendation() {
+          const btn = document.getElementById('ttsBtn');
+          const player = document.getElementById('ttsPlayer');
+          
+          btn.disabled = true;
+          btn.textContent = '⏳ Generating Audio...';
+
+          fetch('/text_to_speech', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              prediction: topCrop.name + " (" + topCrop.hindi_name + ")",
+              description: summaryText,
+              symptoms: [],
+              treatment: topCrop.tips,
+              prevention: "Suitability match: " + topCrop.suitability + "%"
+            })
+          })
+          .then(r => r.json())
+          .then(data => {
+            btn.disabled = false;
+            btn.textContent = '🔊 Listen (English)';
+            if (data.success) {
+              player.src = data.audio_url;
+              player.play();
+            } else {
+              alert('Speech error: ' + (data.error || 'Unknown'));
+            }
+          })
+          .catch(e => {
+            btn.disabled = false;
+            btn.textContent = '🔊 Listen (English)';
+            alert('Failed to generate speech audio');
+          });
+        }
+
+        function translateRecommendation() {
+          const lang = document.getElementById('recLangSelect').value;
+          if (!lang) {
+            alert('Please select a language first!');
+            return;
+          }
+          const box = document.getElementById('transBox');
+          box.style.display = 'block';
+          box.textContent = '⏳ Translating recommendation...';
+
+          fetch('/translate_text', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              target_lang: lang,
+              prediction: topCrop.name + " (" + topCrop.hindi_name + ")",
+              description: summaryText,
+              symptoms: topCrop.reasons,
+              treatment: topCrop.tips,
+              prevention: "Suitability: " + topCrop.suitability + "%"
+            })
+          })
+          .then(r => r.json())
+          .then(data => {
+            if (data.success && data.translated) {
+              const t = data.translated;
+              box.innerHTML = '<strong style=\"color:#00ffa1;\">' + t.prediction + '</strong><br>' +
+                              '<p>' + t.description + '</p>' +
+                              '<p style=\"color:#ffe600; margin-top:8px;\"><strong>सुझाव / Advice:</strong> ' + t.treatment + '</p>';
+            } else {
+              box.textContent = 'Translation service currently busy. Please retry in a moment.';
+            }
+          })
+          .catch(e => {
+            box.textContent = 'Translation failed. Please check network connection.';
+          });
+        }
+      </script>
+    {% endif %}
+  </div>
+
+  <footer class="footer">
+    © 2026 CropSpectra | Smart Vision for a Healthier Harvest 🌿
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 70 },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.35 },
+        "size": { "value": 3 },
+        "move": { "speed": 1.8 }
+      },
+      "interactivity": {
+        "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } }
+      },
+      "retina_detect": true
+    });
+
+    // Weather Auto-Fill Function (Open-Meteo Free API)
+    function fetchLiveWeather() {
+      const status = document.getElementById('weatherStatus');
+      status.textContent = '⏳ Requesting location & weather data...';
+      
+      if (!navigator.geolocation) {
+        status.textContent = '⚠️ Geolocation not supported by your browser. Please enter weather manually.';
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          status.textContent = '⏳ Coordinates found (' + lat.toFixed(2) + ', ' + lon.toFixed(2) + '). Fetching Open-Meteo climate data...';
+
+          const url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&current=temperature_2m,relative_humidity_2m,precipitation&daily=precipitation_sum&timezone=auto';
+
+          fetch(url)
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.current) {
+                const temp = data.current.temperature_2m;
+                const hum = data.current.relative_humidity_2m;
+                let rain = 650; // default seasonal estimate
+                if (data.daily && data.daily.precipitation_sum && data.daily.precipitation_sum.length > 0) {
+                  const dailySum = data.daily.precipitation_sum.reduce((a, b) => a + (b || 0), 0);
+                  rain = Math.round(dailySum * 15 + 300); // estimated seasonal range
+                }
+                
+                document.getElementById('temperature').value = temp;
+                document.getElementById('humidity').value = hum;
+                if (!document.getElementById('rainfall').value) {
+                  document.getElementById('rainfall').value = rain;
+                }
+                status.style.color = '#00ffa1';
+                status.textContent = '✅ Weather auto-filled successfully! Temp: ' + temp + '°C | Humidity: ' + hum + '%';
+              } else {
+                status.textContent = '⚠️ Weather data format unexpected. You can type values manually.';
+              }
+            })
+            .catch(err => {
+              status.textContent = '⚠️ Weather service unavailable offline. Please type values manually.';
+            });
+        },
+        function(err) {
+          status.textContent = '⚠️ Location access denied or timed out. Please enter temperature and humidity manually.';
+        },
+        { timeout: 10000 }
+      );
+    }
+  </script>
+</body>
+</html>
